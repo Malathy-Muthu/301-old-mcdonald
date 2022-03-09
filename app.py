@@ -7,28 +7,28 @@ import pandas as pd
 ########### Define your variables ######
 
 # here's the list of possible columns to choose from.
-list_of_columns =['code', 'state', 'category', 'total exports', 'beef', 'pork', 'poultry',
-       'dairy', 'fruits fresh', 'fruits proc', 'total fruits', 'veggies fresh',
-       'veggies proc', 'total veggies', 'corn', 'wheat', 'cotton']
+list_of_columns =['id', 'name', 'date', 'manner_of_death', 'armed', 'age', 'gender',
+       'race', 'city', 'state', 'signs_of_mental_illness', 'threat_level',
+       'flee', 'body_camera', 'arms_category']
 
-mycolumn='corn'
-myheading1 = f"Wow! That's a lot of {mycolumn}!"
-mygraphtitle = '2011 US Agriculture Exports by State'
+mycolumn='race'
+myheading1 = f"Incident reported for {mycolumn}!"
+mygraphtitle = '2015 to 2020 Police shooting database'
 mycolorscale = 'ylorrd' # Note: The error message will list possible color scales.
-mycolorbartitle = "Millions USD"
-tabtitle = 'Old McDonald'
+mycolorbartitle = "No of incidents"
+tabtitle = 'Police shooting'
 sourceurl = 'https://plot.ly/python/choropleth-maps/'
-githublink = 'https://github.com/austinlasseter/dash-map-usa-agriculture'
+githublink = 'https://github.com/Malathy-Muthu/301-old-mcdonald'
 
 
 
 ########## Set up the chart
 
 import pandas as pd
-df = pd.read_csv('assets/usa-2011-agriculture.csv')
+df = pd.read_csv('assets/shootings.csv')
 
 fig = go.Figure(data=go.Choropleth(
-    locations=df['code'], # Spatial coordinates
+    locations=df['state'], # Spatial coordinates
     z = df[mycolumn].astype(float), # Data to be color-coded
     locationmode = 'USA-states', # set of locations match entries in `locations`
     colorscale = mycolorscale,
