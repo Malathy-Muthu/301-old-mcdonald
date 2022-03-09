@@ -18,7 +18,7 @@ mycolorscale = 'ylorrd' # Note: The error message will list possible color scale
 mycolorbartitle = "Millions USD"
 tabtitle = 'Old McDonald'
 sourceurl = 'https://plot.ly/python/choropleth-maps/'
-githublink = 'https://github.com/austinlasseter/dash-map-usa-agriculture'
+githublink = 'https://github.com/Malathy-Muthu/301-old-mcdonald'
 
 
 ########## Set up the chart
@@ -50,11 +50,19 @@ app.title=tabtitle
 ########### Set up the layout
 
 app.layout = html.Div(children=[
-    html.H1(myheading1),
-    dcc.Graph(
-        id='figure-1',
-        figure=fig
-    ),
+    html.H1('2011 Agricultural Exports, by State'),
+    html.Div([
+        html.Div([
+                html.H6('Select a variable for analysis:'),
+                dcc.Dropdown(
+                    id='options-drop',
+                    options=[{'label': i, 'value': i} for i in list_of_columns],
+                    value='corn'
+                ),
+        ], className='two columns'),
+        html.Div([dcc.Graph(id='figure-1'),
+            ], className='ten columns'),
+    ], className='twelve columns'),
     html.A('Code on Github', href=githublink),
     html.Br(),
     html.A("Data Source", href=sourceurl),
