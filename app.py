@@ -29,7 +29,7 @@ df = pd.read_csv('assets/shootings.csv')
 
 fig = go.Figure(data=go.Choropleth(
     locations=df['state'], # Spatial coordinates
-    z = df[mycolumn].astype(float), # Data to be color-coded
+    z = df[mycolumn], # Data to be color-coded
     locationmode = 'USA-states', # set of locations match entries in `locations`
     colorscale = mycolorscale,
     colorbar_title = mycolorbartitle,
