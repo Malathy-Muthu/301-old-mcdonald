@@ -12,7 +12,7 @@ list_of_columns =['id', 'name', 'date', 'manner_of_death', 'armed', 'age', 'gend
        'flee', 'body_camera', 'arms_category']
 
 mycolumn='age'
-myheading1 = f"Incident reported for {mycolumn}!"
+myheading1 = f"Incident reported by {mycolumn}!"
 mygraphtitle = '2015 to 2020 Police shooting database'
 mycolorscale = 'ylorrd' # Note: The error message will list possible color scales.
 mycolorbartitle = "Age range"
