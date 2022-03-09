@@ -69,6 +69,31 @@ app.layout = html.Div(children=[
     ]
 )
 
+# make a function that can intake any varname and produce a map.
+@app.callback(Output('figure-1', 'figure'),
+             [Input('options-drop', 'value')])
+def make_figure(varname):
+    mygraphtitle = f'Exports of {varname} in 2011'
+    mycolorscale = 'ylorrd' # Note: The error message will list possible color scales.
+    mycolorbartitle = "Millions USD"
+
+    data=go.Choropleth(
+        locations=df['code'], # Spatial coordinates
+        locationmode = 'USA-states', # set of locations match entries in `locations`
+        z = df[varname].astype(float), # Data to be color-coded
+        colorscale = mycolorscale,
+        colorbar_title = mycolorbartitle,
+    )
+    fig = go.Figure(data)
+    fig.update_layout(
+        title_text = mygraphtitle,
+        geo_scope='usa',
+        width=1200,
+        height=800
+    )
+    return fig
+
+
 ############ Deploy
 if __name__ == '__main__':
     app.run_server()
