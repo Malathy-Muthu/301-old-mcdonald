@@ -11,11 +11,11 @@ list_of_columns =['id', 'name', 'date', 'manner_of_death', 'armed', 'age', 'gend
        'race', 'city', 'state', 'signs_of_mental_illness', 'threat_level',
        'flee', 'body_camera', 'arms_category']
 
-mycolumn='race'
+mycolumn='age'
 myheading1 = f"Incident reported for {mycolumn}!"
 mygraphtitle = '2015 to 2020 Police shooting database'
 mycolorscale = 'ylorrd' # Note: The error message will list possible color scales.
-mycolorbartitle = "No of incidents"
+mycolorbartitle = "Age range"
 tabtitle = 'Police shooting'
 sourceurl = 'https://plot.ly/python/choropleth-maps/'
 githublink = 'https://github.com/Malathy-Muthu/301-old-mcdonald'
@@ -29,7 +29,7 @@ df = pd.read_csv('assets/shootings.csv')
 
 fig = go.Figure(data=go.Choropleth(
     locations=df['state'], # Spatial coordinates
-    z = df[mycolumn], # Data to be color-coded
+    z = df[mycolumn].astype(float), # Data to be color-coded
     locationmode = 'USA-states', # set of locations match entries in `locations`
     colorscale = mycolorscale,
     colorbar_title = mycolorbartitle,
