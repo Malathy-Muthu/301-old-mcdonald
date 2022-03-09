@@ -12,7 +12,7 @@ tabtitle = 'Police Shooting Statistics'
 sourceurl = 'https://plot.ly/python/choropleth-maps/'
 githublink = 'https://github.com/Malathy-Muthu/301-old-mcdonald'
 # here's the list of possible columns to choose from.
-list_of_columns =['manner_of_death', 'armed', 'age', 'gender',
+list_of_columns =['state','manner_of_death', 'armed', 'age', 'gender',
        'race','signs_of_mental_illness', 'threat_level',
        'flee', 'body_camera', 'arms_category']
 
