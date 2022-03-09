@@ -12,8 +12,8 @@ tabtitle = 'Police Shooting Statistics'
 sourceurl = 'https://plot.ly/python/choropleth-maps/'
 githublink = 'https://github.com/Malathy-Muthu/301-old-mcdonald'
 # here's the list of possible columns to choose from.
-list_of_columns =['id', 'name', 'date', 'manner_of_death', 'armed', 'age', 'gender',
-       'race', 'city', 'state', 'signs_of_mental_illness', 'threat_level',
+list_of_columns =['manner_of_death', 'armed', 'age', 'gender',
+       'race','signs_of_mental_illness', 'threat_level',
        'flee', 'body_camera', 'arms_category']
 
 
@@ -55,12 +55,12 @@ app.layout = html.Div(children=[
 @app.callback(Output('figure-1', 'figure'),
              [Input('options-drop', 'value')])
 def make_figure(varname):
-    mygraphtitle = f'Victims of {varname} in 2015 to 2020'
+    mygraphtitle = f'Incidents by {varname} in 2015 to 2020'
     mycolorscale = 'pubugn' # Note: The error message will list possible color scales.
-    mycolorbartitle = "No of persons"
+    mycolorbartitle = "No of incidents"
 
     data=go.Choropleth(
-        locations=df['code'], # Spatial coordinates
+        locations=df['state'], # Spatial coordinates
         locationmode = 'USA-states', # set of locations match entries in `locations`
         z = df[varname].astype(float), # Data to be color-coded
         colorscale = mycolorscale,
