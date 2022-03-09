@@ -12,7 +12,7 @@ tabtitle = 'Police Shooting Statistics'
 sourceurl = 'https://plot.ly/python/choropleth-maps/'
 githublink = 'https://github.com/Malathy-Muthu/301-old-mcdonald'
 # here's the list of possible columns to choose from.
-list_of_columns =['state','manner_of_death', 'armed', 'age', 'gender',
+list_of_columns =['manner_of_death', 'armed', 'age', 'gender',
        'race','signs_of_mental_illness', 'threat_level',
        'flee', 'body_camera', 'arms_category']
 
@@ -31,7 +31,7 @@ app.title=tabtitle
 ########### Set up the layout
 
 app.layout = html.Div(children=[
-    html.H1('2015 to 2020 Police Shooting Statistics, by State'),
+    html.H1('2015 to 2020 Police Shooting Statistics by State'),
     html.Div([
         html.Div([
                 html.H6('Select a variable for analysis:'),
@@ -62,7 +62,7 @@ def make_figure(varname):
     data=go.Choropleth(
         locations=df['state'], # Spatial coordinates
         locationmode = 'USA-states', # set of locations match entries in `locations`
-        z = df[varname].astype(float), # Data to be color-coded
+        z = df[varname], # Data to be color-coded
         colorscale = mycolorscale,
         colorbar_title = mycolorbartitle,
     )
