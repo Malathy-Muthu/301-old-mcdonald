@@ -1,17 +1,16 @@
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
-from dash.dependencies import Input, Output, State
-
 import plotly.graph_objs as go
 import pandas as pd
 
 ########### Define your variables ######
 
 
-sourceurl = 'https://plot.ly/python/choropleth-maps/'
-
 # here's the list of possible columns to choose from.
+list_of_columns =['state','manner_of_death', 'armed', 'age', 'gender',
+       'race','signs_of_mental_illness', 'threat_level',
+       'flee', 'body_camera', 'arms_category']
 mycolumn='race'
 myheading1 = f"Interesting information {mycolumn}!"
 mygraphtitle = 'Police Shooting Statistics - 2015 to 2020'
