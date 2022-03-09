@@ -38,7 +38,7 @@ app.layout = html.Div(children=[
                 dcc.Dropdown(
                     id='options-drop',
                     options=[{'label': i, 'value': i} for i in list_of_columns],
-                    value='race'
+                    value='age'
                 ),
         ], className='two columns'),
         html.Div([dcc.Graph(id='figure-1'),
@@ -57,7 +57,7 @@ app.layout = html.Div(children=[
 def make_figure(varname):
     mygraphtitle = f'Incidents by {varname} in 2015 to 2020'
     mycolorscale = 'pubugn' # Note: The error message will list possible color scales.
-    mycolorbartitle = "No of incidents"
+    mycolorbartitle = "Range of Values"
 
     data=go.Choropleth(
         locations=df['state'], # Spatial coordinates
